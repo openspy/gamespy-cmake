@@ -5,6 +5,8 @@ file (GLOB GT2_HDRS "${SDK_ROOT}/gt2/*.h")
 
 add_library (gt2 STATIC ${GT2_SRCS} ${GT2_HDRS})
 target_link_libraries(gt2 pthread common)
+INSTALL(TARGETS gt2)
+install(FILES ${GT2_HDRS} DESTINATION include/GameSpy/gt2)
 
 #chat samples
 

@@ -2,9 +2,13 @@ file (GLOB SB_SRCS "${SDK_ROOT}/serverbrowsing/*.c")
 file (GLOB SB_HDRS "${SDK_ROOT}/serverbrowsing/*.h")
 
 
-
 add_library (serverbrowsing STATIC ${SB_SRCS} ${SB_HDRS})
 target_link_libraries(serverbrowsing pthread common)
+
+
+INSTALL(TARGETS serverbrowsing)
+install(FILES ${SB_HDRS} DESTINATION include/GameSpy/serverbrowsing)
+
 
 #serverbrowsing samples
 

@@ -3,10 +3,13 @@ file (GLOB CHAT_HDRS "${SDK_ROOT}/Chat/*.h")
 
 
 
-add_library (chat STATIC ${CHAT_SRCS} ${CHAT_HDRS})
-target_link_libraries(chat pthread common)
+add_library (Chat STATIC ${CHAT_SRCS} ${CHAT_HDRS})
+target_link_libraries(Chat pthread common)
+
+INSTALL(TARGETS Chat)
+install(FILES ${CHAT_HDRS} DESTINATION include/GameSpy/Chat)
 
 #chat samples
 
 add_executable (chatc "${SDK_ROOT}/Chat/chatc/chatc.c")
-target_link_libraries(chatc pthread common chat)
+target_link_libraries(chatc pthread common Chat)

@@ -6,6 +6,9 @@ file (GLOB GP_HDRS "${SDK_ROOT}/GP/gp.h" "${SDK_ROOT}/GP/gpiBuddy.h" "${SDK_ROOT
 
 add_library (GP STATIC ${GP_SRCS} ${GP_HDRS})
 target_link_libraries(GP pthread gt2 common)
+INSTALL(TARGETS GP)
+install(FILES ${GP_HDRS} DESTINATION include/GameSpy/GP)
+
 
 #GP samples
 add_executable (gptestc "${SDK_ROOT}/GP/gptestc/gptestc.c")

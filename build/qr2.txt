@@ -6,6 +6,10 @@ file (GLOB QR2_HDRS "${SDK_ROOT}/qr2/*.h")
 add_library (qr2 STATIC ${QR2_SRCS} ${QR2_HDRS})
 target_link_libraries(qr2 pthread common)
 
+INSTALL(TARGETS qr2)
+install(FILES ${QR2_HDRS} DESTINATION include/GameSpy/qr2)
+
+
 #qr2 samples
 
 add_executable (qr2csample "${SDK_ROOT}/qr2/qr2csample/qr2csample.c")

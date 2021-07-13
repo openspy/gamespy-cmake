@@ -3,10 +3,12 @@ file (GLOB PEER_HDRS "${SDK_ROOT}/Peer/*.h")
 
 
 
-add_library (peer STATIC ${PEER_SRCS} ${PEER_HDRS})
-target_link_libraries(peer pthread common)
+add_library (Peer STATIC ${PEER_SRCS} ${PEER_HDRS})
+target_link_libraries(Peer pthread common)
+INSTALL(TARGETS Peer)
+install(FILES ${PEER_HDRS} DESTINATION include/GameSpy/Peer)
 
 #chat samples
 
 add_executable (peerc "${SDK_ROOT}/Peer/peerc/peerc.c")
-target_link_libraries(peerc pthread common peer chat serverbrowsing qr2 natneg pinger)
+target_link_libraries(peerc pthread common Peer Chat serverbrowsing qr2 natneg pinger)

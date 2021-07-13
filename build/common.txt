@@ -13,3 +13,7 @@ set (ALL_SRCS ${ROOT_SRCS} ${ROOT_HDRS} ${COMMON_SRCS} ${COMMON_PLAT_SRCS} ${COM
 
 add_library (common STATIC ${ALL_SRCS})
 target_link_libraries(common gt2)
+
+INSTALL(TARGETS common)
+install(FILES ${ROOT_HDRS} DESTINATION include/GameSpy)
+install(FILES ${COMMON_HDRS} DESTINATION include/GameSpy/common)
