@@ -1,0 +1,12 @@
+file (GLOB CHAT_SRCS "${SDK_ROOT}/Chat/*.c")
+file (GLOB CHAT_HDRS "${SDK_ROOT}/Chat/*.h")
+
+
+
+add_library (chat STATIC ${CHAT_SRCS} ${CHAT_HDRS})
+target_link_libraries(chat pthread common)
+
+#chat samples
+
+add_executable (chatc "${SDK_ROOT}/Chat/chatc/chatc.c")
+target_link_libraries(chatc pthread common chat)

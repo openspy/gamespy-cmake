@@ -1,0 +1,12 @@
+file (GLOB QR2_SRCS "${SDK_ROOT}/qr2/*.c")
+file (GLOB QR2_HDRS "${SDK_ROOT}/qr2/*.h")
+
+
+
+add_library (qr2 STATIC ${QR2_SRCS} ${QR2_HDRS})
+target_link_libraries(qr2 pthread common)
+
+#qr2 samples
+
+add_executable (qr2csample "${SDK_ROOT}/qr2/qr2csample/qr2csample.c")
+target_link_libraries(qr2csample pthread common qr2 natneg)

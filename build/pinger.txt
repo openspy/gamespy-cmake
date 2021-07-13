@@ -1,0 +1,12 @@
+file (GLOB PINGER_SRCS "${SDK_ROOT}/pinger/*.c")
+file (GLOB PINGER_HDRS "${SDK_ROOT}/pinger/*.h")
+
+
+
+add_library (pinger STATIC ${PINGER_SRCS} ${PINGER_HDRS})
+target_link_libraries(pinger pthread common)
+
+#pinger samples
+
+#add_executable (pingTest "${SDK_ROOT}/pinger/pingTest/pingTest.c")
+#target_link_libraries(pingTest pthread common)

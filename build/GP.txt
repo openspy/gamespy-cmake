@@ -1,0 +1,15 @@
+file (GLOB GP_SRCS "${SDK_ROOT}/GP/*.c")
+file (GLOB GP_HDRS "${SDK_ROOT}/GP/*.h")
+
+list(REMOVE_ITEM GP_SRCS "${SDK_ROOT}/GP/gp.c" "${SDK_ROOT}/GP/gpiBuddy.c" "${SDK_ROOT}/GP/gpiBuffer.c" "${SDK_ROOT}/GP/gpi.c" "${SDK_ROOT}/GP/gpiCallback.c" "${SDK_ROOT}/GP/gpiConnect.c" "${SDK_ROOT}/GP/gpiInfo.c" "${SDK_ROOT}/GP/gpiKeys.c" "${SDK_ROOT}/GP/gpiOperation.c" "${SDK_ROOT}/GP/gpiPeer.c" "${SDK_ROOT}/GP/gpiProfile.c" "${SDK_ROOT}/GP/gpiSearch.c" "${SDK_ROOT}/GP/gpiTransfer.c" "${SDK_ROOT}/GP/gpiUnique.c" "${SDK_ROOT}/GP/gpiUtility.c")
+list(REMOVE_ITEM GP_HDRS "${SDK_ROOT}/GP/gp.h" "${SDK_ROOT}/GP/gpiBuddy.h" "${SDK_ROOT}/GP/gpiBuffer.h" "${SDK_ROOT}/GP/gpi.h" "${SDK_ROOT}/GP/gpiCallback.h" "${SDK_ROOT}/GP/gpiConnect.h" "${SDK_ROOT}/GP/gpiInfo.h" "${SDK_ROOT}/GP/gpiKeys.h" "${SDK_ROOT}/GP/gpiOperation.h" "${SDK_ROOT}/GP/gpiPeer.h" "${SDK_ROOT}/GP/gpiProfile.h" "${SDK_ROOT}/GP/gpiSearch.h" "${SDK_ROOT}/GP/gpiTransfer.h" "${SDK_ROOT}/GP/gpiUnique.h" "${SDK_ROOT}/GP/gpiUtility.h")
+
+
+
+add_library (GP STATIC ${GP_SRCS} ${GP_HDRS})
+target_link_libraries(GP pthread common)
+
+#GP samples
+
+add_executable (gptestc "${SDK_ROOT}/GP/gptestc/gptestc.c")
+target_link_libraries(gptestc pthread common peer chat serverbrowsing qr2 natneg pinger GP)

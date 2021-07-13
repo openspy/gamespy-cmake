@@ -1,0 +1,14 @@
+set(SDK_ROOT "../Gamespy")
+file (GLOB ROOT_SRCS "${SDK_ROOT}/*.c")
+file (GLOB ROOT_HDRS "${SDK_ROOT}/*.h")
+
+file (GLOB COMMON_SRCS "${SDK_ROOT}/common/*.c")
+file (GLOB COMMON_HDRS "${SDK_ROOT}/common/*.h")
+
+file (GLOB COMMON_PLAT_SRCS "${SDK_ROOT}/common/linux/*.c")
+file (GLOB COMMON_PLAT_HDRS "${SDK_ROOT}/common/linux/*.h")
+
+set (ALL_SRCS ${ROOT_SRCS} ${ROOT_HDRS} ${COMMON_SRCS} ${COMMON_SRCS} ${COMMON_PLAT_SRCS} ${COMMON_PLAT_HDRS})
+
+
+add_library (common STATIC ${ALL_SRCS})

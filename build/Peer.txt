@@ -1,0 +1,12 @@
+file (GLOB PEER_SRCS "${SDK_ROOT}/Peer/*.c")
+file (GLOB PEER_HDRS "${SDK_ROOT}/Peer/*.h")
+
+
+
+add_library (peer STATIC ${PEER_SRCS} ${PEER_HDRS})
+target_link_libraries(peer pthread common)
+
+#chat samples
+
+add_executable (peerc "${SDK_ROOT}/Peer/peerc/peerc.c")
+target_link_libraries(peerc pthread common peer chat serverbrowsing qr2 natneg pinger)
