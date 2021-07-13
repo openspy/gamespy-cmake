@@ -8,7 +8,8 @@ file (GLOB COMMON_HDRS "${SDK_ROOT}/common/*.h")
 file (GLOB COMMON_PLAT_SRCS "${SDK_ROOT}/common/linux/*.c")
 file (GLOB COMMON_PLAT_HDRS "${SDK_ROOT}/common/linux/*.h")
 
-set (ALL_SRCS ${ROOT_SRCS} ${ROOT_HDRS} ${COMMON_SRCS} ${COMMON_SRCS} ${COMMON_PLAT_SRCS} ${COMMON_PLAT_HDRS})
+set (ALL_SRCS ${ROOT_SRCS} ${ROOT_HDRS} ${COMMON_SRCS} ${COMMON_PLAT_SRCS} ${COMMON_PLAT_HDRS})
 
 
 add_library (common STATIC ${ALL_SRCS})
+target_link_libraries(common gt2)

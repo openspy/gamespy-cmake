@@ -1,0 +1,12 @@
+file (GLOB GT2_SRCS "${SDK_ROOT}/gt2/*.c")
+file (GLOB GT2_HDRS "${SDK_ROOT}/gt2/*.h")
+
+
+
+add_library (gt2 STATIC ${GT2_SRCS} ${GT2_HDRS})
+target_link_libraries(gt2 pthread common)
+
+#chat samples
+
+add_executable (gt2testc "${SDK_ROOT}/gt2/gt2testc/gt2testc.c")
+target_link_libraries(gt2testc pthread common)
