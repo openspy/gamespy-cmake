@@ -4,7 +4,7 @@ file (GLOB NATNEG_HDRS "${SDK_ROOT}/natneg/*.h")
 
 
 add_library (natneg STATIC ${NATNEG_SRCS} ${NATNEG_HDRS})
-target_link_libraries(natneg pthread common)
+target_link_libraries(natneg pthread gamespycommon)
 
 INSTALL(TARGETS natneg)
 install(FILES ${NATNEG_HDRS} DESTINATION include/GameSpy/natneg)
@@ -13,4 +13,4 @@ install(FILES ${NATNEG_HDRS} DESTINATION include/GameSpy/natneg)
 #natneg samples
 
 add_executable (natneg_simpletest "${SDK_ROOT}/natneg/simpletest/simpletest.c")
-target_link_libraries(natneg_simpletest pthread common natneg)
+target_link_libraries(natneg_simpletest pthread gamespycommon natneg)

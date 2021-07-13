@@ -4,7 +4,7 @@ file (GLOB PINGER_HDRS "${SDK_ROOT}/pinger/*.h")
 
 
 add_library (pinger STATIC ${PINGER_SRCS} ${PINGER_HDRS})
-target_link_libraries(pinger pthread common)
+target_link_libraries(pinger pthread gamespycommon)
 
 INSTALL(TARGETS pinger)
 install(FILES ${PINGER_HDRS} DESTINATION include/GameSpy/pinger)
@@ -13,4 +13,4 @@ install(FILES ${PINGER_HDRS} DESTINATION include/GameSpy/pinger)
 #pinger samples
 
 #add_executable (pingTest "${SDK_ROOT}/pinger/pingTest/pingTest.c")
-#target_link_libraries(pingTest pthread common)
+#target_link_libraries(pingTest pthread gamespycommon)

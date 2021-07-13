@@ -4,7 +4,7 @@ file (GLOB QR2_HDRS "${SDK_ROOT}/qr2/*.h")
 
 
 add_library (qr2 STATIC ${QR2_SRCS} ${QR2_HDRS})
-target_link_libraries(qr2 pthread common)
+target_link_libraries(qr2 pthread gamespycommon)
 
 INSTALL(TARGETS qr2)
 install(FILES ${QR2_HDRS} DESTINATION include/GameSpy/qr2)
@@ -13,4 +13,4 @@ install(FILES ${QR2_HDRS} DESTINATION include/GameSpy/qr2)
 #qr2 samples
 
 add_executable (qr2csample "${SDK_ROOT}/qr2/qr2csample/qr2csample.c")
-target_link_libraries(qr2csample pthread common qr2 natneg)
+target_link_libraries(qr2csample pthread gamespycommon qr2 natneg)

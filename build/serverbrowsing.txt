@@ -3,7 +3,7 @@ file (GLOB SB_HDRS "${SDK_ROOT}/serverbrowsing/*.h")
 
 
 add_library (serverbrowsing STATIC ${SB_SRCS} ${SB_HDRS})
-target_link_libraries(serverbrowsing pthread common)
+target_link_libraries(serverbrowsing pthread gamespycommon)
 
 
 INSTALL(TARGETS serverbrowsing)
@@ -13,7 +13,7 @@ install(FILES ${SB_HDRS} DESTINATION include/GameSpy/serverbrowsing)
 #serverbrowsing samples
 
 add_executable (sb_querytest "${SDK_ROOT}/serverbrowsing/querytest/querytest.c")
-target_link_libraries(sb_querytest pthread common serverbrowsing qr2 natneg)
+target_link_libraries(sb_querytest pthread gamespycommon serverbrowsing qr2 natneg)
 
 add_executable (sb_ctest "${SDK_ROOT}/serverbrowsing/sbctest/sbctest.c")
-target_link_libraries(sb_ctest pthread common serverbrowsing qr2 natneg)
+target_link_libraries(sb_ctest pthread gamespycommon serverbrowsing qr2 natneg)
