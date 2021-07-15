@@ -12,7 +12,7 @@ set (ALL_SRCS ${ROOT_SRCS} ${ROOT_HDRS} ${COMMON_SRCS} ${COMMON_PLAT_SRCS} ${COM
 
 
 add_library (gamespycommon STATIC ${ALL_SRCS})
-target_link_libraries(gamespycommon gt2)
+target_link_libraries(gamespycommon ghttp gt2)
 
 INSTALL(TARGETS gamespycommon)
 install(FILES ${ROOT_HDRS} DESTINATION include/GameSpy)

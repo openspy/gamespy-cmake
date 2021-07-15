@@ -1,0 +1,14 @@
+file (GLOB GHTTP_SRCS "${SDK_ROOT}/ghttp/*.c")
+file (GLOB GHTTP_HDRS "${SDK_ROOT}/ghttp/*.h")
+
+
+
+add_library (ghttp STATIC ${GHTTP_SRCS} ${GHTTP_HDRS})
+target_link_libraries(ghttp pthread gamespycommon)
+INSTALL(TARGETS ghttp)
+install(FILES ${GHTTP_HDRS} DESTINATION include/GameSpy/ghttp)
+
+#chat samples
+
+add_executable (ghttpc "${SDK_ROOT}/ghttp/ghttpc/ghttpc.c")
+target_link_libraries(ghttpc pthread gamespycommon ghttp)

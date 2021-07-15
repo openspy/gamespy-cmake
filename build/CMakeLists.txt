@@ -6,8 +6,10 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 ADD_DEFINITIONS(-DGSI_DOMAIN_NAME="openspy.net")
 if(UNIX)
-    ADD_DEFINITIONS(-D_LINUX -D_DEBUG)
+    ADD_DEFINITIONS(-D_LINUX)
 endif()
+ADD_DEFINITIONS(-DGSI_COMMON_DEBUG -D_DEBUG)
+
 
 
 
@@ -20,3 +22,5 @@ include("chat.txt")
 include("Peer.txt")
 include("gt2.txt")
 include("GP.txt")
+include("ghttp.txt")
+include("webservices.txt")

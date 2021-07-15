@@ -1,0 +1,15 @@
+file (GLOB WS_SRCS "${SDK_ROOT}/webservices/*.c")
+file (GLOB WS_HDRS "${SDK_ROOT}/webservices/*.h")
+
+
+
+
+add_library (AuthService STATIC ${WS_SRCS} ${WS_HDRS})
+target_link_libraries(AuthService pthread gt2 gamespycommon ghttp)
+INSTALL(TARGETS AuthService)
+install(FILES ${WS_HDRS} DESTINATION include/GameSpy/webservices)
+
+
+#GP samples
+add_executable (authtest "${SDK_ROOT}/webservices/authtest/authtest.c")
+target_link_libraries(authtest pthread gamespycommon AuthService ghttp)
