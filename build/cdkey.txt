@@ -1,0 +1,22 @@
+file (GLOB GCDKEY_SRCS "${SDK_ROOT}/gcdkey/*.c")
+file (GLOB GCDKEY_HDRS "${SDK_ROOT}/gcdkey/*.h")
+
+
+
+add_library (gcdkey STATIC ${GCDKEY_SRCS} ${GCDKEY_HDRS})
+target_link_libraries(gcdkey pthread gamespycommon)
+
+INSTALL(TARGETS gcdkey)
+install(FILES ${GCDKEY_HDRS} DESTINATION include/GameSpy/gcdkey)
+
+
+#cdkey samples
+
+add_executable (gcdkey_ServerTest "${SDK_ROOT}/gcdkey/ServerTest/gcdkeyservertest.c")
+target_link_libraries(gcdkey_ServerTest pthread gamespycommon gcdkey)
+
+add_executable (gcdkey_ClientTest "${SDK_ROOT}/gcdkey/ClientTest/gcdkeyclienttest.c")
+target_link_libraries(gcdkey_ClientTest pthread gamespycommon gcdkey)
+
+#add_executable (gcdkey_CdkeyGen "${SDK_ROOT}/gcdkey/CdkeyGen/gcdkeygen.c")
+#target_link_libraries(gcdkey_CdkeyGen pthread gamespycommon gcdkey)
