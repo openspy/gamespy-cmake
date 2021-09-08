@@ -1,0 +1,18 @@
+file (GLOB SC_SRCS "${SDK_ROOT}/sc/*.c")
+file (GLOB SC_HDRS "${SDK_ROOT}/sc/*.h")
+
+
+
+
+add_library (sc STATIC ${SC_SRCS} ${SC_HDRS})
+target_link_libraries(sc pthread gt2 gamespycommon ghttp)
+INSTALL(TARGETS sc)
+install(FILES ${WS_HDRS} DESTINATION include/GameSpy/sc)
+
+
+#GP samples
+add_executable (sctest "${SDK_ROOT}/sc/sctest/sctest.c")
+target_link_libraries(sctest pthread gamespycommon AuthService ghttp sake sc GP)
+
+add_executable (sctestmatchless "${SDK_ROOT}/sc/sctestmatchless/sctestmatchless.c")
+target_link_libraries(sctestmatchless pthread gamespycommon AuthService ghttp sake sc GP)

@@ -1,0 +1,15 @@
+file (GLOB BRIGADES_SRCS "${SDK_ROOT}/brigades/*.c")
+file (GLOB BRIGADES_HDRS "${SDK_ROOT}/brigades/*.h")
+
+
+
+
+add_library (brigades STATIC ${BRIGADES_SRCS} ${BRIGADES_HDRS})
+target_link_libraries(brigades pthread gt2 gamespycommon ghttp)
+INSTALL(TARGETS brigades)
+install(FILES ${WS_HDRS} DESTINATION include/GameSpy/brigades)
+
+
+#GP samples
+add_executable (brigadesEnd2EndTest "${SDK_ROOT}/brigades/brigadesEnd2EndTest/brigadesE2ETest.c")
+target_link_libraries(brigadesEnd2EndTest pthread gamespycommon AuthService ghttp sake sc GP brigades)

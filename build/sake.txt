@@ -1,0 +1,15 @@
+file (GLOB SAKE_SRCS "${SDK_ROOT}/sake/*.c")
+file (GLOB SAKE_HDRS "${SDK_ROOT}/sake/*.h")
+
+
+
+
+add_library (sake STATIC ${SAKE_SRCS} ${SAKE_HDRS})
+target_link_libraries(sake pthread gt2 gamespycommon ghttp)
+INSTALL(TARGETS sake)
+install(FILES ${WS_HDRS} DESTINATION include/GameSpy/sake)
+
+
+#GP samples
+add_executable (saketest "${SDK_ROOT}/sake/saketest/saketest.c")
+target_link_libraries(saketest pthread gamespycommon AuthService ghttp sake GP)
