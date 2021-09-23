@@ -7,7 +7,7 @@ file (GLOB SC_HDRS "${SDK_ROOT}/sc/*.h")
 add_library (sc STATIC ${SC_SRCS} ${SC_HDRS})
 target_link_libraries(sc pthread gt2 gamespycommon ghttp)
 INSTALL(TARGETS sc)
-install(FILES ${WS_HDRS} DESTINATION include/GameSpy/sc)
+install(FILES ${SC_HDRS} DESTINATION include/GameSpy/sc)
 
 
 #GP samples

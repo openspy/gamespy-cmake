@@ -1,4 +1,5 @@
-set(SDK_ROOT "../Gamespy")
+include_directories(${SDK_ROOT})
+
 file (GLOB ROOT_SRCS "${SDK_ROOT}/*.c")
 file (GLOB ROOT_HDRS "${SDK_ROOT}/*.h")
 
